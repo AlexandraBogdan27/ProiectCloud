@@ -1,23 +1,10 @@
 const express = require("express")
 const Sequelize = require('sequelize')
-const axios = require("axios")
-let sequelize
 
-if(process.env.MYSQLCONNSTR_localdb) {
-    let result = process.env.MYSQLCONNSTR_localdb.split(";")
-    
-    sequelize = new Sequelize(result[0].split("=")[1], result[2].split("=")[1], result[3].split("=")[1], {
-        dialect: "mysql",
-        host: result[1].split("=")[1].split(":")[0],
-        port: result[1].split("=")[1].split(":")[1]
-    })
-} else {
-    sequelize = new Sequelize('profile', 'root', 'password', {
-        dialect: "mysql",
-        host: "aatty9p2au0i0u.chzq885goq4p.us-east-1.rds.amazonaws.com",
-        port: 3306
-    })
-}
+const sequelize = new Sequelize('profile', 'username', 'password', {
+    dialect: "mysql",
+    host: "localhost"
+})
 
 sequelize.authenticate().then(() => {
     console.log("Connected to database")
@@ -33,33 +20,14 @@ const Messages = sequelize.define('messages', {
 
 const app = express()
 
-app.use('/', express.static('frontend'))
+app.use('/', express.static('Frontend'))
 
 //definesc un endpoint de tip GET /hello
 app.get('/hello', (request, response) => {
-   response.status(200).json({hello: process.env})
+   response.status(200).json({hello: "world"})
 })
 
-app.post('/github/:code', async (req, res) => {
-    const code = req.params.code
-    try {
-        let auth = await axios({
-            url: 'https://github.com/login/oauth/access_token',
-            method: 'POST',
-            data: {
-                client_id: '78ee08dd6f900a5e9a47',
-                client_secret: '8c5a5340527a6fe3c6345bfcf30cb3475d4959a8',
-                code: code,
-            },
-            headers: {
-                'Accept': 'application/json' 
-            }
-        })
-        res.status(200).json(auth['data'])
-    } catch(err) {
-        res.status(500).json(err)
-    }
-})
+app.get("/test", (req,res) => {})
 
 app.get('/createdb', (request, response) => {
     sequelize.sync({force:true}).then(() => {
@@ -137,4 +105,4 @@ app.delete('/messages/:id', (request, response) => {
     })
 })
 
-app.listen(process.env.PORT||8080)
+app.listen(8080)
