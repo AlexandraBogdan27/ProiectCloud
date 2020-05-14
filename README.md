@@ -67,4 +67,19 @@ async function getLyrics() {
 ```
 * Exemple de request/response:
 
+Request pentru Lastfm: se introduce numele artistului și se apasă butonul de lângă câmpul de text, ceea ce va crea un link către JSON.
 
+![](images/ssLastfm1.PNG)
+![](images/ssLastfm2.PNG)
+
+Response Lastfm:
+
+![](images/ssLastfm3.PNG)
+
+Request lyrics.ovh:
+
+![](images/ssLyrics1.PNG)
+
+Response lyrics.ovh:
+
+![](images/ssLyrics2.PNG)
