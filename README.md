@@ -68,3 +68,23 @@ async function getLyrics() {
 * Exemple de request/response:
 
 Request pentru Lastfm: se introduce numele artistului și se apasă butonul de lângă câmpul de text, ceea ce va crea un link către JSON.
+
+![](images/ssLastfm1.PNG)
+![](images/ssLastfm2.PNG)
+
+Response Lastfm:
+
+![](images/ssLastfm3.PNG)
+
+Request lyrics.ovh: pentru a trimite un request trebuie trebuie introdus atât numele artistului, cât și titlul cântecului.
+
+![](images/ssLyrics3.PNG)
+![](images/ssLyrics4.PNG)
+
+Response lyrics.ovh:
+
+![](images/ssLyrics5.PNG)
+
+* Autentificare și autorizare servicii utilizate:
+
+Lastfm cere un API Key, oferit gratuit, pentru utilizarea serviciilor. Lyrics.ovh nu necesită nici un fel de autentificare pentru folosirea serviciilor.
