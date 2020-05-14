@@ -7,10 +7,10 @@
   
   <style>
       body {
-        background-image: url('https://www.wallpaperflare.com/static/849/233/317/nyan-cat-simple-background-rainbows-cat-wallpaper.jpg');
+        background-image: url('https://files.123freevectors.com/wp-content/original/130875-blue-polygon-background.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-size: 100% 100%;
+        background-size: 112% 112%;
       }
       .myDiv {
         background-color: lightblue;
@@ -19,18 +19,20 @@
   </style>
   
   <body>
-      <label for="" style="color:white; font-size:180%"> Artist name:</label>
+      <br /><br />
+      <label for="" style="color:white; font-size:180%"> Artist name:</label><br />
       <input type="text" name="artist" id="artist">
       
       <button onclick="getMusic()">Get artist's top tracks</button><br>
         
-      <label for="" style="color:white; font-size:180%"> Song title:</label>
+      <label for="" style="color:white; font-size:180%"> Song title:</label><br />
       <input type="text" name="title" id="title">
       
       <button onclick="getLyrics()">Get lyrics</button><br><br><br>
       
       <script type="text/javascript">
           async function getMusic() {
+              
               let artist = document.getElementById('artist').value
               
               let url = `http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=3f6a85a0c82abb5cd734fd8dcc8fc8ab&format=json`
@@ -40,6 +42,11 @@
               
               console.log(data)
               
+              var a = document.createElement('a')
+              var linkText = document.createTextNode(`Link to JSON with ${artist}'s top tracks`)
+              a.appendChild(linkText)
+              a.href = `http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=3f6a85a0c82abb5cd734fd8dcc8fc8ab&format=json`
+              document.body.appendChild(a)
           }
           
           async function getLyrics() {
