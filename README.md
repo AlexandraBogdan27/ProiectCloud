@@ -79,7 +79,7 @@ Response Lastfm:
 Request lyrics.ovh:
 
 ![](images/ssLyrics3.PNG)
-![](images/ssLyrics1.PNG)
+![](images/ssLyrics4.PNG)
 
 Response lyrics.ovh:
 
