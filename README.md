@@ -88,3 +88,9 @@ Response lyrics.ovh:
 * Autentificare și autorizare servicii utilizate:
 
 Lastfm cere un API Key, oferit gratuit, pentru utilizarea serviciilor. Lyrics.ovh nu necesită nici un fel de autentificare pentru folosirea serviciilor.
+
+##Capturi ecran aplicație
+
+Aplicația are două câmpuri de text și două butoane.
+
+![](images/ssApp.PNG)
